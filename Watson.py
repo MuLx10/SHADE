@@ -22,4 +22,5 @@ def get_tone_json(text):
     # print(tone_analysis)
     # print(json.dumps(tone_analysis, indent=2))
     # return json.loads(tone_analysis)
+    return str(tone_analysis)
     return json.dumps(tone_analysis, indent=2)

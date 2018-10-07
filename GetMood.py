@@ -6,7 +6,7 @@ import json
 
 def get_tweets(user):
     ed = dt.date.today()
-    bd = ed - dt.timedelta(days=20)
+    bd = ed - dt.timedelta(days=1)
     tweets = query_tweets(user,limit=20,begindate=bd)
     if not tweets:
         bd = ed - dt.timedelta(days=20)
@@ -29,7 +29,7 @@ def get_mood(user):
     for tweet in tweets:
         mood_json = Watson.get_tone_json(tweet)
         mood_json = json.loads(mood_json)
-        line = mood_json['document_tone']
+        line = mood_json['result']['document_tone']
         for tone in line['tones']:
             score[tone['tone_id']] += tone['score']
     
@@ -38,4 +38,4 @@ def get_mood(user):
 
 
 if __name__ == '__main__':
-    print (get_mood('MundraShivansh'))
+    print (get_mood('Twitter'))
