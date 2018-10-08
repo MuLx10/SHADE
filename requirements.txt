@@ -3,3 +3,7 @@ bs4
 lxml
 requests
 watson-developer-cloud>=1.7.0
+operator
+pygame
+time
+sys
